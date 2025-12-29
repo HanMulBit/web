@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>룬 시너지 시스템 - 담벼엇 스타일</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 헤더 -->
+        <header class="header">
+            <h1>⚔️ 룬 시너지 시스템</h1>
+            <p class="subtitle">최적의 룬 조합을 찾아보세요</p>
+        </header>
+
+        <!-- 대시보드 -->
+        <section class="dashboard">
+            <h2>📊 활성화된 시너지</h2>
+            <div id="synergy-dashboard" class="synergy-container">
+                <div class="empty-state">
+                    <p>룬을 선택하면 시너지가 표시됩니다</p>
+                </div>
+            </div>
+            
+            <h3>💪 총합 스탯</h3>
+            <div id="total-stats" class="stats-container">
+                <div class="empty-state">
+                    <p>룬을 선택하면 스탯이 표시됩니다</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 필터 -->
+        <section class="filters">
+            <h2>🔍 필터</h2>
+            <div class="filter-group">
+                <label>
+                    등급:
+                    <select id="filter-grade">
+                        <option value="">전체</option>
+                        <option value="legendary">전설</option>
+                        <option value="epic">영웅</option>
+                        <option value="rare">희귀</option>
+                        <option value="common">일반</option>
+                    </select>
+                </label>
+                
+                <label>
+                    속성:
+                    <select id="filter-property">
+                        <option value="">전체</option>
+                        <option value="fire">화</option>
+                        <option value="water">수</option>
+                        <option value="wind">풍</option>
+                        <option value="earth">지</option>
+                        <option value="light">광</option>
+                        <option value="dark">암</option>
+                    </select>
+                </label>
+                
+                <label>
+                    부위:
+                    <select id="filter-part">
+                        <option value="">전체</option>
+                        <option value="head">머리</option>
+                        <option value="chest">가슴</option>
+                        <option value="gloves">장갑</option>
+                        <option value="boots">신발</option>
+                        <option value="weapon">무기</option>
+                        <option value="accessory">장신구</option>
+                    </select>
+                </label>
+                
+                <label>
+                    세트:
+                    <select id="filter-set">
+                        <option value="">전체</option>
+                    </select>
+                </label>
+                
+                <button id="reset-filters" class="btn-secondary">필터 초기화</button>
+            </div>
+        </section>
+
+        <!-- 선택된 룬 -->
+        <section class="selected-runes">
+            <div class="section-header">
+                <h2>✨ 선택된 룬 (<span id="selected-count">0</span>)</h2>
+                <div class="button-group">
+                    <button id="share-build" class="btn-secondary">🔗 조합 공유</button>
+                    <button id="clear-selection" class="btn-danger">🗑️ 전체 해제</button>
+                </div>
+            </div>
+            <div id="selected-runes-container" class="runes-grid">
+                <div class="empty-state">
+                    <p>선택된 룬이 없습니다</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 룬 목록 -->
+        <section class="rune-list">
+            <h2>🎴 룬 목록</h2>
+            <div id="runes-container" class="runes-grid loading">
+                <div class="loading-spinner">로딩중...</div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 공유 모달 -->
+    <div id="share-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>🔗 룬 조합 공유</h2>
+            <p>아래 URL을 복사하여 공유하세요:</p>
+            <div class="share-url-container">
+                <input type="text" id="share-url" readonly>
+                <button id="copy-url" class="btn-primary">복사</button>
+            </div>
+            <p class="share-hint">이 URL을 통해 다른 사용자도 같은 룬 조합을 볼 수 있습니다.</p>
+        </div>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
